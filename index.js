@@ -7,17 +7,15 @@ const SupportExts = ['js', 'json', 'wxml', 'axml', 'xml'];
 module.exports = function createPage(options){
     options = Object.assign({ dirname: 'index', root: process.cwd(), extensions: [] }, options || {});
 
-    if(options.filename === undefined){
-        options.filename = options.dirname;
-    }
+    options.filename = options.filename || options.dirname;
 
     let pageRoot = path.resolve(options.root, options.dirname) + '/';
     let files = [];
 
     options.extensions.forEach((item, idx) => {
         let fileOptions = {
-            filename: typeof item === 'string' ? options.filename : item.filename,
-            ext: typeof item === 'string' ? item : item.ext
+            filename: item.filename || options.filename,
+            ext: item.ext || item
         };
 
         let template = '';
@@ -30,7 +28,7 @@ module.exports = function createPage(options){
                     template = require('./templates/page.js');
                 break;
                 case 'json':
-                    template = require(`./templates/${ options.type === 'alipay' ? 'alipay' : 'wechat' }-json.js`);
+                    template = require(`./templates/${ options.env === 'alipay' ? 'alipay' : 'wechat' }-json.js`);
                 break;
                 case 'wxml':
                 case 'axml':
