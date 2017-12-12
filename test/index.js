@@ -1,6 +1,6 @@
-const WeappFileCreate = require('../index');
+const AppFileCreate = require('../index');
 
-WeappFileCreate({
+AppFileCreate({
     root: __dirname,
     dirname: 'profile',
     extensions: [{

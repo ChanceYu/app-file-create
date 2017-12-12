@@ -1,11 +1,11 @@
 {
-  "name": "weapp-file-create",
-  "version": "1.0.1",
+  "name": "app-file-create",
+  "version": "1.0.0",
   "description": "A package to create files and directory for WeChat and Alipay miniProgram, and also support for others program to use",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ChanceYu/weapp-file-create.git"
+    "url": "git://github.com/ChanceYu/app-file-create.git"
   },
   "keywords": [
     "weapp",
@@ -19,9 +19,9 @@
   "author": "ChanceYu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ChanceYu/weapp-file-create/issues"
+    "url": "https://github.com/ChanceYu/app-file-create/issues"
   },
-  "homepage": "https://github.com/ChanceYu/weapp-file-create#readme",
+  "homepage": "https://github.com/ChanceYu/app-file-create#readme",
   "dependencies": {
     "fs-extra": "^5.0.0"
   }

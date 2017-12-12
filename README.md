@@ -1,5 +1,5 @@
-# weapp-file-create
-[![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)](https://github.com/ChanceYu/weapp-file-create)
+# app-file-create
+[![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)](https://github.com/ChanceYu/app-file-create)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
 
 创建微信小程序和支付宝小程序的目录页面，还适合其它非小程序的项目使用
@@ -8,7 +8,7 @@
 ## 安装
 
 ```bash
-npm install weapp-file-create --save-dev
+npm install app-file-create --save-dev
 ```
 
 
@@ -28,10 +28,10 @@ npm install weapp-file-create --save-dev
 ## 使用
 
 ```javascript
-const WeappFileCreate = require('weapp-file-create');
+const AppFileCreate = require('app-file-create');
 
 // demo1
-WeappFileCreate({
+AppFileCreate({
     root: __dirname,
     dirname: 'profile',
     extensions: ['js', 'json', 'axml']
@@ -39,7 +39,7 @@ WeappFileCreate({
 
 
 // demo2
-WeappFileCreate({
+AppFileCreate({
     root: __dirname,
     dirname: 'profile',
     extensions: [{
