@@ -17,7 +17,7 @@ npm install weapp-file-create --save-dev
 - `root` - 创建的位置根目录
 - `env` - 环境类型，`alipay`、`wechat`，默认`wechat`
 - `dirname` - 文件夹名称，`String`
-- `filename` - 子文件名称，`String`，默认就是上面的`dirname`
+- `filename` - 子文件名称，`String`，默认就是上面的`dirname`与文件夹名称相同
 - `extensions` - 子文件扩展名
   - `filename` - 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
   - `ext` - 子文件扩展名，`String`
@@ -32,6 +32,7 @@ const WeappFileCreate = require('weapp-file-create');
 
 // demo1
 WeappFileCreate({
+    root: __dirname,
     dirname: 'profile',
     extensions: ['js', 'json', 'axml']
 })
@@ -39,6 +40,7 @@ WeappFileCreate({
 
 // demo2
 WeappFileCreate({
+    root: __dirname,
     dirname: 'profile',
     extensions: [{
         ext: 'js'
