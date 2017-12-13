@@ -1,8 +1,6 @@
 const path = require('path');
 const fse  = require('fs-extra');
 
-const SupportExts = ['js', 'json', 'wxml', 'axml', 'xml'];
-
 module.exports = function createPage(options){
     options = Object.assign({ dirname: 'index', root: process.cwd(), extensions: [] }, options || {});
 
