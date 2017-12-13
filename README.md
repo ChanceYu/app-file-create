@@ -28,7 +28,7 @@ npm install app-file-create --save-dev
 ## 使用
 
 ```javascript
-const AppFileCreate = require('../index');
+const AppFileCreate = require('app-file-create');
 
 const pageRoot = __dirname + '/pages';
 
