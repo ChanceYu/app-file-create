@@ -1,6 +1,5 @@
-const fs   = require('fs')
-const path = require('path')
-const fse  = require('fs-extra')
+const path = require('path');
+const fse  = require('fs-extra');
 
 const SupportExts = ['js', 'json', 'wxml', 'axml', 'xml'];
 
@@ -10,17 +9,30 @@ module.exports = function createPage(options){
     options.filename = options.filename || options.dirname;
 
     let pageRoot = path.resolve(options.root, options.dirname) + '/';
+    let env = 'wechat';
     let files = [];
 
+    // alipay wechat ''
+    if(options.hasOwnProperty('env')){
+        env = options.env;
+    }
+
+    // handler file extensions
     options.extensions.forEach((item, idx) => {
+        if(typeof item === 'string'){
+            item = {
+                ext: item
+            };
+        }
+        
         let fileOptions = {
             filename: item.filename || options.filename,
-            ext: item.ext || item
+            ext: item.ext
         };
 
         let template = '';
 
-        if(item.template){
+        if(item.hasOwnProperty('template')){
             template = item.template;
         }else{
             switch(fileOptions.ext){
@@ -36,6 +48,10 @@ module.exports = function createPage(options){
                     template = require('./templates/xml.js');
                 break;
             }
+
+            if(env !== 'alipay' && env !== 'wechat'){
+                template = '';
+            }
         }
 
         if(typeof template === 'function'){
@@ -47,6 +63,7 @@ module.exports = function createPage(options){
         files.push(fileOptions);
     });
 
+    // create files
     files.forEach((item, idx) => {
         fse.outputFileSync(pageRoot + item.filename + '.' + item.ext, item.template);
     });

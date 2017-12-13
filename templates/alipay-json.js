@@ -1,8 +1,6 @@
 module.exports = options => `{
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTextStyle": "black",
-  "navigationBarTitleText": "${options.title || '页面标题'}",
-  "backgroundColor": "#000000",
-  "backgroundTextStyle": "light",
-  "enablePullDownRefresh": false
+  "titleBarColor": "#ffffff",
+  "defaultTitle": "${options.title || '页面标题'}",
+  "allowsBounceVertical": "YES",
+  "pullRefresh": false
 }`
