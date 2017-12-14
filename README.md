@@ -16,9 +16,9 @@ npm install app-file-create
 
 - `root` - 创建的文件位置目录
 - `env` - 环境类型，`alipay`、`wechat`，默认`wechat`
-- `dirname` - 文件夹名称，默认`index`
-- `replace` - 是否替换原来的文件，默认`false`
 - `debug` - 是否开启调试模式，默认`false`，如果为`true`，则会显示log信息
+- `replace` - 是否替换原来的文件，默认`false`
+- `dirname` - 文件夹名称，默认`index`
 - `filename` - 子文件名称，默认就是上面的`dirname`，与文件夹名称相同
 - `files` - 子文件配置
   - `ext` - 子文件扩展名
