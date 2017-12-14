@@ -2,44 +2,66 @@
 [![](https://img.shields.io/badge/language-JavaScript-brightgreen.svg)](https://github.com/ChanceYu/app-file-create)
 [![](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/mit-license.php) 
 
-创建微信小程序和支付宝小程序的目录页面，还适合其它非小程序的项目使用
+创建微信小程序和支付宝小程序的目录页面，还适合其它非小程序的项目使用，简单易用，功能强大
 
 
 ## 安装
 
 ```bash
-npm install app-file-create --save-dev
+npm install app-file-create
 ```
 
 
 ## 参数
 
-- `root` - 创建的位置根目录
+- `root` - 创建的文件位置目录
 - `env` - 环境类型，`alipay`、`wechat`，默认`wechat`
-- `dirname` - 文件夹名称，`String`
-- `filename` - 子文件名称，`String`，默认就是上面的`dirname`与文件夹名称相同
-- `extensions` - 子文件扩展名
+- `dirname` - 文件夹名称，默认`index`
+- `replace` - 是否替换原来的文件，默认`false`
+- `debug` - 是否开启调试模式，默认`false`，如果为`true`，则会显示log信息
+- `filename` - 子文件名称，默认就是上面的`dirname`，与文件夹名称相同
+- `files` - 子文件配置
+  - `ext` - 子文件扩展名
   - `filename` - 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
-  - `ext` - 子文件扩展名，`String`
   - `template` - 子文件模板内容，`String|Function`
   - `args` - 子文件模板渲染的参数，`Object`
 
 
-## 使用
+## 方法
+
+- `config` - 配置默认参数，注意：调用 `AppFileCreate([options])` 的参数会覆盖默认的配置
 
 ```javascript
 const AppFileCreate = require('app-file-create');
 
 const pageRoot = __dirname + '/pages';
 
-// 创建支付宝小程序页面
-AppFileCreate({
+AppFileCreate.config({
     root: pageRoot,
+    debug: true
+});
+```
+
+
+## 使用
+
+- 创建微信小程序页面
+```javascript
+AppFileCreate({
+    dirname: 'wx_page',
+    files: ['js', 'json', 'wxml', 'wxss']
+});
+```
+
+- 创建支付宝小程序页面
+```javascript
+AppFileCreate({
     env: 'alipay',
     dirname: 'ali_page',
-    extensions: [
+    files: [
         'js',
         'axml',
+        'acss',
         {
             ext: 'json',
             args: {
@@ -48,22 +70,14 @@ AppFileCreate({
         }
     ]
 });
+```
 
-
-// 创建微信小程序页面
+- 创建其它类型项目文件
+```javascript
 AppFileCreate({
-    root: pageRoot,
-    dirname: 'wx_page',
-    extensions: ['js', 'json', 'wxml']
-});
-
-
-// 创建其它类型项目文件
-AppFileCreate({
-    root: pageRoot,
     env: '',
     dirname: 'web_page',
-    extensions: [
+    files: [
         'js',
         {
             ext: 'html',
@@ -80,24 +94,24 @@ AppFileCreate({
         }
     ]
 });
+```
 
-
-// 创建其它类型项目文件，子文件名称与文件夹不同
+- 创建其它类型项目文件，子文件名称与文件夹不同
+```javascript
 AppFileCreate({
-    root: pageRoot,
     env: '',
     dirname: 'diff_dir_page',
     filename: 'child',
-    extensions: ['js', 'css']
+    files: ['js', 'css']
 });
+```
 
-
-// 创建其它类型项目文件，子文件名称自定义
+- 创建其它类型项目文件，子文件名称自定义
+```javascript
 AppFileCreate({
-    root: pageRoot,
     env: '',
     dirname: 'diff_filename_page',
-    extensions: [{
+    files: [{
         ext: 'js',
         filename: 'a'
     },{

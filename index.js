@@ -1,22 +1,27 @@
-const path = require('path');
-const fse  = require('fs-extra');
+const path = require('path')
+const fse  = require('fs-extra')
 
-module.exports = function createPage(options){
-    options = Object.assign({ dirname: 'index', root: process.cwd(), extensions: [] }, options || {});
+let defaultOptions = {
+    root: process.cwd(),
+    replace: false,
+    debug: false,
+    env: 'wechat',
+    dirname: 'index',
+    filename: '',
+    files: []
+}
+
+function AppFileCreate(options){
+    options = Object.assign({}, defaultOptions, options || {});
 
     options.filename = options.filename || options.dirname;
 
-    let pageRoot = path.resolve(options.root, options.dirname) + '/';
-    let env = 'wechat';
+    let pageRoot = path.join(options.root, options.dirname, '/');
+    let env = options.env;
     let files = [];
 
-    // alipay wechat ''
-    if(options.hasOwnProperty('env')){
-        env = options.env;
-    }
-
-    // handler file extensions
-    options.extensions.forEach((item, idx) => {
+    // handler files
+    options.files.forEach((item, idx) => {
         if(typeof item === 'string'){
             item = {
                 ext: item
@@ -38,7 +43,7 @@ module.exports = function createPage(options){
                     template = require('./templates/page.js');
                 break;
                 case 'json':
-                    template = require(`./templates/${ options.env === 'alipay' ? 'alipay' : 'wechat' }-json.js`);
+                    template = require(`./templates/${ env === 'alipay' ? 'alipay' : 'wechat' }-json.js`);
                 break;
                 case 'wxml':
                 case 'axml':
@@ -58,11 +63,28 @@ module.exports = function createPage(options){
             fileOptions.template = template;
         }
 
+        fileOptions.filePath = pageRoot;
+        fileOptions.file = pageRoot + fileOptions.filename + '.' + fileOptions.ext;
+
         files.push(fileOptions);
     });
 
     // create files
     files.forEach((item, idx) => {
-        fse.outputFileSync(pageRoot + item.filename + '.' + item.ext, item.template);
+        let exists = fse.pathExistsSync(item.file);
+
+        if(!exists || options.replace === true){
+            fse.outputFileSync(item.file, item.template);
+        }
+
+        (options.debug === true) && console.log(`[exists:${exists}]: ${item.file}`);
     });
+
+    return files;
 }
+
+AppFileCreate.config = function(options){
+    Object.assign(defaultOptions, options);
+}
+
+module.exports = AppFileCreate
