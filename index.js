@@ -19,6 +19,7 @@ function AppFileCreate(options){
     let pageRoot = path.join(options.root, options.dirname, '/');
     let env = options.env;
     let files = [];
+    let outputFiles = [];
 
     // handler files
     options.files.forEach((item, idx) => {
@@ -75,12 +76,19 @@ function AppFileCreate(options){
 
         if(!exists || options.replace === true){
             fse.outputFileSync(item.file, item.template);
-        }
 
-        (options.debug === true) && console.log(`[exists:${exists}]: ${item.file}`);
+            outputFiles.push(item);
+            
+            if(options.debug === true){
+                console.log(`${ exists ? 'replaced' : 'created'}: ${item.file}`);
+            }
+        }
     });
 
-    return files;
+    return {
+        files: files,
+        outputFiles: outputFiles
+    }
 }
 
 AppFileCreate.config = function(options){
