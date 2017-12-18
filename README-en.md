@@ -25,17 +25,17 @@ Name | Type | Default | Description
 `debug`                | Boolean | `false` | Use debug mode, if true will show log info
 `replace`              | Boolean | `false` | Replace old files
 `dirname`              | String | `index` | Folder name
-`filename`             | String | `index` | Subfile name
+`filename`             | String | -- | Subfile name，the default filename is the same as `dirname` abolve
 `files`                | Array | `[ filesOption ]` | Subfiles Array, `filesOption` is an object
 `filesOption.ext`      | String | -- | File extension
-`filesOption.filename` | String | -- | Filename
+`filesOption.filename` | String | -- | Filename, the default filename is the same as `options.filename`, or `options.dirname`
 `filesOption.template` | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
 `filesOption.args`     | Object | `{}` | The argumant for rending template, if `filesOption.template` is `Function`, `args` will be effective
 
 
-## 方法
+## Methods
 
-- `config` - 配置默认参数，注意：调用 `AppFileCreate([options])` 的参数会覆盖默认的配置
+- `config` - config default options, notice: when to use `AppFileCreate([options])`, the options will cover default config
 
 ```javascript
 const AppFileCreate = require('app-file-create');
@@ -49,9 +49,9 @@ AppFileCreate.config({
 ```
 
 
-## 使用
+## Examples
 
-- 创建微信小程序页面
+- Create WeChat miniProgram page (微信小程序)
 ```javascript
 AppFileCreate({
     dirname: 'wx_page',
@@ -59,7 +59,7 @@ AppFileCreate({
 });
 ```
 
-- 创建支付宝小程序页面
+- Create Alipay miniProgram page (支付宝小程序)
 ```javascript
 AppFileCreate({
     env: 'alipay',
@@ -78,7 +78,7 @@ AppFileCreate({
 });
 ```
 
-- 创建其它类型项目文件
+- Create web page
 ```javascript
 AppFileCreate({
     env: '',
@@ -102,7 +102,7 @@ AppFileCreate({
 });
 ```
 
-- 创建其它类型项目文件，子文件名称与文件夹不同
+- Create other files, folder name is different from subfile name
 ```javascript
 AppFileCreate({
     env: '',
@@ -112,7 +112,7 @@ AppFileCreate({
 });
 ```
 
-- 创建其它类型项目文件，子文件名称自定义
+- Create other files，subfile name is different
 ```javascript
 AppFileCreate({
     env: '',
