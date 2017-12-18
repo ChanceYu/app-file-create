@@ -1,7 +1,6 @@
 # app-file-create
-[![NPM Version][img-npm-version]][url-npm]
+[![NPM][img-npm]][url-npm]
 [![Build Status][img-travis]][url-travis]
-[![NPM Downloads][img-npm-downloads]][url-npm]
 [![Dependencies][img-david]][url-david]
 [![Language][img-javascript]][url-github]
 [![License][img-mit]][url-mit]
@@ -26,7 +25,7 @@ npm install app-file-create --save-dev
 `replace`              | Boolean | `false` | 是否替换原来的文件，默认`false`
 `dirname`              | String | `index` | 文件夹名称，默认`index`
 `filename`             | String | -- | 子文件名称，默认就是上面的`dirname`（与文件夹名称相同）
-`files`                | Array | `[ filesOption ]` | 子文件配置，`filesOption` 是个对象参数
+`files`                | Array | `[` <br>`filesOption`<br>`]` | 子文件配置，`filesOption` 是个对象参数
 `filesOption.ext`      | String | -- | 子文件扩展名
 `filesOption.filename` | String | -- | 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
 `filesOption.template` | String \| Function | -- | 子文件模板内容，如果是函数，那么函数第一个参数就是下面的`args`参数
@@ -139,9 +138,7 @@ AppFileCreate({
 [url-david]: https://david-dm.org/ChanceYu/app-file-create
 [url-mit]: https://opensource.org/licenses/mit-license.php
 
-
-[img-npm-version]: https://img.shields.io/npm/v/app-file-create.svg
-[img-npm-downloads]: https://img.shields.io/npm/dt/app-file-create.svg
+[img-npm]: https://nodei.co/npm/app-file-create.png?compact=true
 [img-travis]: https://travis-ci.org/ChanceYu/app-file-create.svg?branch=master
 [img-david]: https://david-dm.org/ChanceYu/app-file-create/status.svg
 [img-javascript]: https://img.shields.io/badge/language-JavaScript-brightgreen.svg
