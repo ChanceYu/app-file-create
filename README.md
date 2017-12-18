@@ -26,11 +26,11 @@ npm install app-file-create --save-dev
 `replace`              | Boolean | `false` | 是否替换原来的文件，默认`false`
 `dirname`              | String | `index` | 文件夹名称，默认`index`
 `filename`             | String | -- | 子文件名称，默认就是上面的`dirname`（与文件夹名称相同）
-`files`                | Array | `[` <br>`filesOption`<br>`]` | 子文件配置，`filesOption` 是个对象参数
-`filesOption.ext`      | String | -- | 子文件扩展名
-`filesOption.filename` | String | -- | 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
-`filesOption.template` | String \| Function | -- | 子文件模板内容，如果是函数，那么函数第一个参数就是下面的`args`参数
-`filesOption.args`     | Object | `{}` | 子文件模板渲染的参数，如果`template`参数是函数，此参数生效
+`files`                | Array | `[` <br>`fileOption`<br>`]` | 子文件配置，`fileOption` 是个对象参数
+`fileOption.ext`      | String | -- | 子文件扩展名
+`fileOption.filename` | String | -- | 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
+`fileOption.template` | String \| Function | -- | 子文件模板内容，如果是函数，那么函数第一个参数就是下面的`args`参数
+`fileOption.args`     | Object | `{}` | 子文件模板渲染的参数，如果`template`参数是函数，此参数生效
 
 
 ## 方法

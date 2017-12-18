@@ -26,11 +26,11 @@ Name | Type | Default | Description
 `replace`              | Boolean | `false` | Replace old files
 `dirname`              | String | `index` | Folder name
 `filename`             | String | -- | Subfile name，the default filename is the same as `dirname` abolve
-`files`                | Array | `[` <br>`filesOption`<br>`]` | Subfiles Array, `filesOption` is an object
-`filesOption.ext`      | String | -- | File extension
-`filesOption.filename` | String | -- | Filename, the default filename is the same as `options.filename`, or `options.dirname`
-`filesOption.template` | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
-`filesOption.args`     | Object | `{}` | The argumant for rending template, if `filesOption.template` is `Function`, `args` will be effective
+`files`                | Array | `[` <br>`fileOption`<br>`]` | Subfiles Array, `fileOption` is an object
+`fileOption.ext`      | String | -- | File extension
+`fileOption.filename` | String | -- | Filename, the default filename is the same as `options.filename`, or `options.dirname`
+`fileOption.template` | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
+`fileOption.args`     | Object | `{}` | The argumant for rending template, if `fileOption.template` is `Function`, `args` will be effective
 
 
 ## Methods

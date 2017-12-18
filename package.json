@@ -1,6 +1,6 @@
 {
   "name": "app-file-create",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "A package to create files and directory for WeChat and Alipay miniProgram, and also support for other programs to use",
   "main": "index.js",
   "scripts": {
