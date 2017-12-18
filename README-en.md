@@ -6,31 +6,31 @@
 [![Language][img-javascript]][url-github]
 [![License][img-mit]][url-mit]
 
-创建微信小程序和支付宝小程序的目录页面，还适合其它非小程序的项目使用，简单易用，功能强大，[English](./README-en.md)
+A package to create files and directory for WeChat and Alipay miniProgram, and also support for other programs to use, [中文](./README.md)
 
 
-## 安装
+## Install
 
 ```bash
 npm install app-file-create --save-dev
 ```
 
 
-## 参数
+## Options
 
-名称 | 类型 | 默认 | 描述
+Name | Type | Default | Description
 --- | --- | --- | ---
-`root`                 | String | `process.cwd()` | 创建的文件位置目录
-`env`                  | String | `wechat` | 环境类型，`alipay`、`wechat`，默认`wechat`
-`debug`                | Boolean | `false` | 是否开启调试模式，默认`false`，如果为`true`，则会显示log信息
-`replace`              | Boolean | `false` | 是否替换原来的文件，默认`false`
-`dirname`              | String | `index` | 文件夹名称，默认`index`
-`filename`             | String | -- | 子文件名称，默认就是上面的`dirname`（与文件夹名称相同）
-`files`                | Array | `[ filesOption ]` | 子文件配置，`filesOption` 是个对象参数
-`filesOption.ext`      | String | -- | 子文件扩展名
-`filesOption.filename` | String | -- | 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
-`filesOption.template` | String \| Function | -- | 子文件模板内容，如果是函数，那么函数第一个参数就是下面的`args`参数
-`filesOption.args`     | Object | `{}` | 子文件模板渲染的参数，如果`template`参数是函数，此参数生效
+`root`                 | String | `process.cwd()` | Output directory
+`env`                  | String | `wechat` | Running environment，`alipay`、`wechat` or empty string
+`debug`                | Boolean | `false` | Use debug mode, if true will show log info
+`replace`              | Boolean | `false` | Replace old files
+`dirname`              | String | `index` | Folder name
+`filename`             | String | `index` | Subfile name
+`files`                | Array | `[ filesOption ]` | Subfiles Array, `filesOption` is an object
+`filesOption.ext`      | String | -- | File extension
+`filesOption.filename` | String | -- | Filename
+`filesOption.template` | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
+`filesOption.args`     | Object | `{}` | The argumant for rending template, if `filesOption.template` is `Function`, `args` will be effective
 
 
 ## 方法
