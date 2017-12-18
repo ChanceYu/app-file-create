@@ -1,8 +1,9 @@
 # app-file-create
-[![version][img-npm-version]][url-npm]
-[![downloads][img-npm-downloads]][url-npm]
-[![language][img-javascript]][url-github]
-[![license][img-mit]][url-mit]
+[![NPM version][img-npm-version]][url-npm]
+[![NPM downloads][img-npm-downloads]][url-npm]
+[![Dependencies][img-david]][url-david]
+[![Language][img-javascript]][url-github]
+[![License][img-mit]][url-mit]
 
 创建微信小程序和支付宝小程序的目录页面，还适合其它非小程序的项目使用，简单易用，功能强大
 
@@ -131,9 +132,11 @@ AppFileCreate({
 
 [url-github]: https://github.com/ChanceYu/app-file-create
 [url-npm]: https://www.npmjs.com/package/app-file-create
+[url-david]: https://david-dm.org/ChanceYu/app-file-create
 [url-mit]: https://opensource.org/licenses/mit-license.php
 
 [img-npm-version]: https://img.shields.io/npm/v/app-file-create.svg
 [img-npm-downloads]: https://img.shields.io/npm/dt/app-file-create.svg
+[img-david]: https://david-dm.org/ChanceYu/app-file-create/status.svg
 [img-javascript]: https://img.shields.io/badge/language-JavaScript-brightgreen.svg
 [img-mit]: https://img.shields.io/badge/license-MIT-blue.svg

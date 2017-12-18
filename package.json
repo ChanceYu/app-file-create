@@ -3,6 +3,9 @@
   "version": "1.0.6",
   "description": "A package to create files and directory for WeChat and Alipay miniProgram, and also support for other programs to use",
   "main": "index.js",
+  "scripts": {
+    "test": "mocha test/*.js"
+  },
   "repository": {
     "type": "git",
     "url": "git://github.com/ChanceYu/app-file-create.git"
@@ -24,5 +27,9 @@
   "homepage": "https://github.com/ChanceYu/app-file-create#readme",
   "dependencies": {
     "fs-extra": "^5.0.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5"
   }
 }
