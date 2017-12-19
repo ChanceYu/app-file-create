@@ -65,7 +65,7 @@ function AppFileCreate(options){
         }
 
         fileOptions.filePath = pageRoot;
-        fileOptions.file = pageRoot + fileOptions.filename + '.' + fileOptions.ext;
+        fileOptions.file = path.join(pageRoot, fileOptions.filename + '.' + fileOptions.ext);
 
         files.push(fileOptions);
     });
