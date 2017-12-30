@@ -22,5 +22,3 @@ $RECYCLE.BIN/
 
 node_modules
 *.js.map
-test/pages
-examples/pages

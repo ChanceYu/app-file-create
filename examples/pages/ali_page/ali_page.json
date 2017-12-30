@@ -1,0 +1,6 @@
+{
+  "titleBarColor": "#ffffff",
+  "defaultTitle": "个人信息",
+  "allowsBounceVertical": "YES",
+  "pullRefresh": false
+}
