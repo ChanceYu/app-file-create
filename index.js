@@ -68,19 +68,17 @@ function AppFileCreate(options){
         fileOptions.file = path.join(pageRoot, fileOptions.filename + '.' + fileOptions.ext);
 
         files.push(fileOptions);
-    });
 
-    // create files
-    files.forEach((item, idx) => {
-        let exists = fse.pathExistsSync(item.file);
+        // create files
+        let exists = fse.pathExistsSync(fileOptions.file);
 
         if(!exists || options.replace === true){
-            fse.outputFileSync(item.file, item.template);
+            fse.outputFileSync(fileOptions.file, fileOptions.template);
 
-            outputFiles.push(item);
+            outputFiles.push(fileOptions);
             
             if(options.debug === true){
-                console.log(`${ exists ? 'replaced' : 'created'}: ${item.file}`);
+                console.log(`${ exists ? 'replaced' : 'created'}: ${fileOptions.file}`);
             }
         }
     });
