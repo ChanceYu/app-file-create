@@ -26,7 +26,7 @@ Name | Type | Default | Description
 `replace`              | Boolean | `false` | Replace old files
 `dirname`              | String | `index` | Folder name
 `filename`             | String | -- | Subfile name，the default filename is the same as `dirname` abolve
-`files`                | Array | `[` <br>`fileOption`<br>`]` | Subfiles Array, `fileOption` is an object
+`files`                | Array | `[` <br>`fileOption`<br>`]` | Subfiles Array, `fileOption` is an object，or file extension string
 `fileOption.ext`      | String | -- | File extension
 `fileOption.filename` | String | -- | Filename, the default filename is the same as `options.filename`, or `options.dirname`
 `fileOption.template` | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
