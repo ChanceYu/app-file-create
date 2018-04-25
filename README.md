@@ -20,17 +20,17 @@ npm install app-file-create --save-dev
 
 名称 | 类型 | 默认 | 描述
 --- | --- | --- | ---
-`root`                 | String | `process.cwd()` | 创建的文件位置目录
-`env`                  | String | `wechat` | 环境类型，`alipay`、`wechat`，默认`wechat`
-`debug`                | Boolean | `false` | 是否开启调试模式，默认`false`，如果为`true`，则会显示log信息
-`replace`              | Boolean | `false` | 是否替换原来的文件，默认`false`
-`dirname`              | String | `index` | 文件夹名称，默认`index`
-`filename`             | String | -- | 子文件名称，默认就是上面的`dirname`（与文件夹名称相同）
-`files`                | Array | `[` <br>`fileOption`<br>`]` | 子文件配置，`fileOption` 是个对象参数，或者文件扩展名字符串
-`fileOption.ext`      | String | -- | 子文件扩展名
-`fileOption.filename` | String | -- | 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
-`fileOption.template` | String \| Function | -- | 子文件模板内容，如果是函数，那么函数第一个参数就是下面的`args`参数
-`fileOption.args`     | Object | `{}` | 子文件模板渲染的参数，如果`template`参数是函数，此参数生效
+root                 | String | `process.cwd()` | 创建的文件位置目录
+env                  | String | `wechat` | 环境类型，`alipay`、`wechat`，默认`wechat`
+debug                | Boolean | `false` | 是否开启调试模式，默认`false`，如果为`true`，则会显示log信息
+replace              | Boolean | `false` | 是否替换原来的文件，默认`false`
+dirname              | String | `index` | 文件夹名称，默认`index`
+filename             | String | -- | 子文件名称，默认就是上面的`dirname`（与文件夹名称相同）
+files                | Array | `[` <br>`fileOption`<br>`]` | 子文件配置，`fileOption` 是个对象参数，或者文件扩展名字符串
+fileOption.ext       | String | -- | 子文件扩展名
+fileOption.filename  | String | -- | 子文件名称，默认是`options`的`filename`，或者`options`的`dirname`（与文件夹名称相同）
+fileOption.template  | String \| Function | -- | 子文件模板内容，如果是函数，那么函数第一个参数就是下面的`args`参数
+fileOption.args      | Object | `{}` | 子文件模板渲染的参数，如果`template`参数是函数，此参数生效
 
 
 ## 方法
@@ -53,9 +53,26 @@ AppFileCreate.config({
 
 - 创建微信小程序页面
 ```javascript
+// 写法一和写法二作用是一样的
+
+// 写法一:
 AppFileCreate({
     dirname: 'wx_page',
     files: ['js', 'json', 'wxml', 'wxss']
+});
+
+// 写法二:
+AppFileCreate({
+    dirname: 'wx_page',
+    files: [{
+        ext: 'js'
+    }, {
+        ext: 'json'
+    }, {
+        ext: 'wxml'
+    }, {
+        ext: 'wxss'
+    }]
 });
 ```
 

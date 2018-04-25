@@ -20,17 +20,17 @@ npm install app-file-create --save-dev
 
 Name | Type | Default | Description
 --- | --- | --- | ---
-`root`                 | String | `process.cwd()` | Output directory
-`env`                  | String | `wechat` | Running environment，`alipay`、`wechat` or empty string
-`debug`                | Boolean | `false` | Use debug mode, if true will show log info
-`replace`              | Boolean | `false` | Replace old files
-`dirname`              | String | `index` | Folder name
-`filename`             | String | -- | Subfile name，the default filename is the same as `dirname` abolve
-`files`                | Array | `[` <br>`fileOption`<br>`]` | Subfiles Array, `fileOption` is an object，or file extension string
-`fileOption.ext`      | String | -- | File extension
-`fileOption.filename` | String | -- | Filename, the default filename is the same as `options.filename`, or `options.dirname`
-`fileOption.template` | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
-`fileOption.args`     | Object | `{}` | The argumant for rending template, if `fileOption.template` is `Function`, `args` will be effective
+root                 | String | `process.cwd()` | Output directory
+env                  | String | `wechat` | Running environment，`alipay`、`wechat` or empty string
+debug                | Boolean | `false` | Use debug mode, if true will show log info
+replace              | Boolean | `false` | Replace old files
+dirname              | String | `index` | Folder name
+filename             | String | -- | Subfile name，the default filename is the same as `dirname` abolve
+files                | Array | `[` <br>`fileOption`<br>`]` | Subfiles Array, `fileOption` is an object，or file extension string
+fileOption.ext       | String | -- | File extension
+fileOption.filename  | String | -- | Filename, the default filename is the same as `options.filename`, or `options.dirname`
+fileOption.template  | String \| Function | -- | File's template, if it is `Function`, the first argument is `args` below
+fileOption.args      | Object | `{}` | The argumant for rending template, if `fileOption.template` is `Function`, `args` will be effective
 
 
 ## Methods
@@ -53,9 +53,26 @@ AppFileCreate.config({
 
 - Create WeChat miniProgram page (微信小程序)
 ```javascript
+// both example1 and example2 have the same effect
+
+// example1:
 AppFileCreate({
     dirname: 'wx_page',
     files: ['js', 'json', 'wxml', 'wxss']
+});
+
+// example2:
+AppFileCreate({
+    dirname: 'wx_page',
+    files: [{
+        ext: 'js'
+    }, {
+        ext: 'json'
+    }, {
+        ext: 'wxml'
+    }, {
+        ext: 'wxss'
+    }]
 });
 ```
 
